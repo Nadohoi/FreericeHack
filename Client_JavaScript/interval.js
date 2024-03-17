@@ -17,7 +17,7 @@
 window.freeRiceHackFunc = function()
 { 
   let problem = document.getElementsByClassName("card-title")[0].innerText; // '11 x 12'
-  if (problem.indexOf("+") != -1)
+  if (problem.indexOf("+") !== -1)
   {
     let pr = problem.split('+').map(n => parseInt(n)); // [11, 12]
   
