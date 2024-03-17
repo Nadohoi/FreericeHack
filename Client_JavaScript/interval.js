@@ -17,10 +17,18 @@
 window.freeRiceHackFunc = function()
 { 
   let problem = document.getElementsByClassName("card-title")[0].innerText; // '11 x 12'
-  let pr      = problem.split('x').map(n => parseInt(n)); // [11, 12]
-
-  let answer = pr[0] * pr[1]; // 132
-
+  if (problem.indexOf("+") != -1)
+  {
+    let pr = problem.split('+').map(n => parseInt(n)); // [11, 12]
+  
+    let answer = pr[0] + pr[1]; // 132
+  }
+  else
+  {
+    let pr = problem.split('-').map(n => parseInt(n)); // [11, 12]
+  
+    let answer = pr[0] - pr[1]; // 132
+  }
   let opts = document.getElementsByClassName('card-button'); // [HTMLElement x 4]
 
   let a = opts[0]; // HTMLElement
