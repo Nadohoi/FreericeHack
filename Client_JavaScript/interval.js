@@ -8,7 +8,7 @@ window.freeRiceHackFunc = function() {
   if (problem.includes('x')) {
     pr = problem.split('x').map(n => parseInt(n));
     answer = pr[0] * pr[1];
-  if (problem.includes('/')) {
+  } else if (problem.includes('/')) {
     pr = problem.split('/').map(n => parseInt(n));
     answer = pr[0] / pr[1];
   } else if (problem.includes('+')) {
