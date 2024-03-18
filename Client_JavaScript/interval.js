@@ -1,60 +1,42 @@
-//      _______                  ____  _              ____        __ 
-//     / _____/ ___  ___ ____   / __ \(_)_______     / __ )____  / /_
-//    / /__   / __/ /__/ ___/  / /_/ / / ___/ _ \   / __  / __ \/ __/
-//   / ___/  / / / /__/ /__/  / _, _/ / /__/  __/  / /_/ / /_/ / /_  
-//  /_/     /_/ /____/____/  /_/ |_/_/\___/\___/  /_____/\____/\__/  
-//  
-//  Original by: Neil Master/Yeehawlerz101
-//  Remixed by: LuisAFK
-//  Make sure to leave your ad blocker off so that Freerice can have some sort of income :)
-//  How to use: Make an account, sign in, then go to the multiplacation table category (freerice.com/categories/multiplication-table)
-//  Then when the page loads, go to the console of your web browser and paste this code in the console and enjoy!
-//  https://github.com/lafkpages/FreericeHack
-
-
 // Define the function
 // Save it as a property of window to prevent re-defining variables
-window.freeRiceHackFunc = function()
-{ 
-  let problem = document.getElementsByClassName("card-title")[0].innerText; // '11 x 12'
-  if (problem.indexOf("+") !== -1)
-  {
-    let pr = problem.split('+').map(n => parseInt(n)); // [11, 12]
-  
-    let answer = pr[0] + pr[1]; // 132
-  }
-  else
-  {
-    let pr = problem.split('-').map(n => parseInt(n)); // [11, 12]
-  
-    let answer = pr[0] - pr[1]; // 132
-  }
-  let opts = document.getElementsByClassName('card-button'); // [HTMLElement x 4]
+window.freeRiceHackFunc = function() {
+  let problem = document.getElementsByClassName("card-title")[0].innerText;
+  let pr, answer;
 
-  let a = opts[0]; // HTMLElement
-  let b = opts[1]; // HTMLElement
-  let c = opts[2]; // HTMLElement
-  let d = opts[3]; // HTMLElement
+  // Check the operation and calculate the answer
+  if (problem.includes('x')) {
+    pr = problem.split('x').map(n => parseInt(n));
+    answer = pr[0] * pr[1];
+  if (problem.includes('/')) {
+    pr = problem.split('/').map(n => parseInt(n));
+    answer = pr[0] / pr[1];
+  } else if (problem.includes('+')) {
+    pr = problem.split('+').map(n => parseInt(n));
+    answer = pr[0] + pr[1];
+  } else if (problem.includes('-')) {
+    pr = problem.split('-').map(n => parseInt(n));
+    answer = pr[0] - pr[1];
+  }
 
-  if (parseInt(a.innerText) == answer)
-  {
+  let opts = document.getElementsByClassName('card-button');
+
+  let a = opts[0];
+  let b = opts[1];
+  let c = opts[2];
+  let d = opts[3];
+
+  if (parseInt(a.innerText) == answer) {
     a.click();
-  }
-  else if (parseInt(b.innerText) == answer)
-  {
+  } else if (parseInt(b.innerText) == answer) {
     b.click();
-  }
-  else if (parseInt(c.innerText) == answer)
-  {
+  } else if (parseInt(c.innerText) == answer) {
     c.click();
-  }
-  else if (parseInt(d.innerText) == answer)
-  {
+  } else if (parseInt(d.innerText) == answer) {
     d.click();
   }
 
-  for (let i = 0; i < window.bruh.length; i++)
-  {
+  for (let i = 0; i < window.bruh.length; i++) {
     clearTimeout(window.bruh[i]);
     bruh.shift();
   }
